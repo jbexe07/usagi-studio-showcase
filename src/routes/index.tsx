@@ -6,6 +6,7 @@ import architectureImage from "@/assets/project-architecture.jpg";
 import coffeeImage from "@/assets/project-coffee.jpg";
 import fashionImage from "@/assets/project-fashion.jpg";
 import { CoverflowCarousel, type CoverflowSlide } from "@/components/ui/coverflow-carousel";
+import logo from "./assets/logo_pto.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -98,7 +99,9 @@ function Index() {
       <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
 
       <header className="floating-nav">
-        <a href="#inicio" className="brand" aria-label="Usagi Studio, início">USAGI<span>●</span></a>
+        <a href="#inicio" className="brand" aria-label="Usagi Studio, início">
+          <img src={logo} alt="Usagi Studio" className="brand-logo" />
+        </a>
         <nav className={menuOpen ? "nav-links is-open" : "nav-links"} aria-label="Navegação principal">
           {navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
           <a href="#contato" className="nav-cta" onClick={() => setMenuOpen(false)}>Iniciar projeto <ArrowUpRight size={14} /></a>
