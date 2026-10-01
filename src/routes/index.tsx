@@ -80,6 +80,18 @@ function Index() {
     return () => { reveal.disconnect(); window.removeEventListener("mousemove", moveCursor); };
   }, []);
 
+  const submitContact = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const name = form.name.trim().slice(0, 80);
+    const email = form.email.trim().slice(0, 255);
+    const message = form.message.trim().slice(0, 1000);
+    if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+    setSending(true);
+    window.open(buildWhatsAppUrl({ name, email, projectType: form.projectType, message }), "_blank", "noopener,noreferrer");
+    setSending(false);
+    setForm((current) => ({ ...current, name: "", email: "", message: "" }));
+  };
+
   return (
     <main className="overflow-clip">
       <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
@@ -100,7 +112,7 @@ function Index() {
         <div className="hero-orbit orbit-one" aria-hidden="true" />
         <div className="hero-orbit orbit-two" aria-hidden="true" />
         <div className="section-wrap hero-content">
-          <p className="eyebrow animate-fade-in">Estúdio criativo independente · São Paulo</p>
+          <p className="eyebrow animate-fade-in">Estúdio criativo independente</p>
           <h1 className="hero-title"><span>IDEIAS QUE</span><span>MOVEM <em>MARCAS.</em></span></h1>
           <div className="hero-bottom">
             <p>Estratégia, design e tecnologia para criar presenças digitais que ninguém esquece.</p>
@@ -153,8 +165,37 @@ function Index() {
         <div className="section-wrap">
           <p className="eyebrow">Tem uma ideia?</p>
           <h2>VAMOS TIRAR<br />DO <em>PAPEL.</em></h2>
-          <a className="contact-link" href="mailto:oi@usagistudio.com.br">oi@usagistudio.com.br <ArrowUpRight /></a>
-          <div className="footer-line"><span>© 2026 Usagi Studio</span><span>São Paulo · Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
+          <form className="contact-form" onSubmit={submitContact} noValidate={false}>
+            <div className="form-grid">
+              <label className="field">
+                <span className="form-label">Seu nome</span>
+                <input type="text" required maxLength={80} value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="Como você se chama?" />
+              </label>
+              <label className="field">
+                <span className="form-label">Seu e-mail</span>
+                <input type="email" required maxLength={255} value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="voce@email.com" />
+              </label>
+            </div>
+            <div className="field">
+              <span className="form-label">Tipo de projeto</span>
+              <div className="type-options" role="group" aria-label="Tipo de projeto">
+                {projectTypes.map((type) => (
+                  <button type="button" key={type} className={type === form.projectType ? "is-active" : ""} onClick={() => setForm({ ...form, projectType: type })}>{type}</button>
+                ))}
+              </div>
+            </div>
+            <label className="field">
+              <span className="form-label">Conte sobre o projeto</span>
+              <textarea required maxLength={1000} rows={4} value={form.message} onChange={(event) => setForm({ ...form, message: event.target.value })} placeholder="Objetivo, prazo, referências…" />
+            </label>
+            <div className="form-actions">
+              <button className="submit-btn" type="submit" disabled={sending}>
+                Enviar pelo WhatsApp <ArrowUpRight size={18} />
+              </button>
+              <p className="form-hint">O botão abre o WhatsApp com a mensagem já pronta — é só revisar e enviar.</p>
+            </div>
+          </form>
+          <div className="footer-line"><span>© 2026 Usagi Studio</span><span>Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
         </div>
       </section>
     </main>
