@@ -6,7 +6,7 @@ import architectureImage from "@/assets/project-architecture.jpg";
 import coffeeImage from "@/assets/project-coffee.jpg";
 import fashionImage from "@/assets/project-fashion.jpg";
 import { CoverflowCarousel, type CoverflowSlide } from "@/components/ui/coverflow-carousel";
-import logo from "./assets/logo_pto.svg";
+import logo from "@/assets/logo_pto.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
