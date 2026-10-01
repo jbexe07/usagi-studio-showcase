@@ -195,7 +195,6 @@ function Index() {
               <button className="submit-btn" type="submit" disabled={sending}>
                 Enviar pelo WhatsApp <ArrowUpRight size={18} />
               </button>
-              <p className="form-hint">O botão abre o WhatsApp com a mensagem já pronta — é só revisar e enviar.</p>
             </div>
           </form>
           <div className="footer-line"><span>© 2026 Usagi Studio</span><span>Pará de Minas · MG — Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
