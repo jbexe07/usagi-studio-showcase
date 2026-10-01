@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowUpRight, Asterisk, Menu, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 import architectureImage from "@/assets/project-architecture.jpg";
 import coffeeImage from "@/assets/project-coffee.jpg";
@@ -33,8 +33,36 @@ const navItems = [
   ["Processo", "#processo"],
 ] as const;
 
+// Número do WhatsApp em formato internacional, apenas dígitos (DDI + DDD + número).
+// Troque pelo número oficial quando tiver, ex: "5531991234567".
+const WHATSAPP_NUMBER = "5511000000000";
+
+type ContactForm = {
+  name: string;
+  email: string;
+  projectType: string;
+  message: string;
+};
+
+function buildWhatsAppUrl(form: ContactForm): string {
+  const text = [
+    `Olá, Usagi Studio! Meu nome é ${form.name}.`,
+    "",
+    `Tipo de projeto: ${form.projectType}`,
+    `E-mail: ${form.email}`,
+    "",
+    "Mensagem:",
+    form.message,
+  ].join("\n");
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
+const projectTypes = ["Site", "Landing page", "E-commerce", "Outro"] as const;
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [form, setForm] = useState<ContactForm>({ name: "", email: "", projectType: "Site", message: "" });
+  const [sending, setSending] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
@@ -51,6 +79,18 @@ function Index() {
     window.addEventListener("mousemove", moveCursor);
     return () => { reveal.disconnect(); window.removeEventListener("mousemove", moveCursor); };
   }, []);
+
+  const submitContact = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const name = form.name.trim().slice(0, 80);
+    const email = form.email.trim().slice(0, 255);
+    const message = form.message.trim().slice(0, 1000);
+    if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+    setSending(true);
+    window.open(buildWhatsAppUrl({ name, email, projectType: form.projectType, message }), "_blank", "noopener,noreferrer");
+    setSending(false);
+    setForm((current) => ({ ...current, name: "", email: "", message: "" }));
+  };
 
   return (
     <main className="overflow-clip">
@@ -72,7 +112,7 @@ function Index() {
         <div className="hero-orbit orbit-one" aria-hidden="true" />
         <div className="hero-orbit orbit-two" aria-hidden="true" />
         <div className="section-wrap hero-content">
-          <p className="eyebrow animate-fade-in">Estúdio criativo independente · São Paulo</p>
+          <p className="eyebrow animate-fade-in">Estúdio criativo independente</p>
           <h1 className="hero-title"><span>IDEIAS QUE</span><span>MOVEM <em>MARCAS.</em></span></h1>
           <div className="hero-bottom">
             <p>Estratégia, design e tecnologia para criar presenças digitais que ninguém esquece.</p>
@@ -125,8 +165,37 @@ function Index() {
         <div className="section-wrap">
           <p className="eyebrow">Tem uma ideia?</p>
           <h2>VAMOS TIRAR<br />DO <em>PAPEL.</em></h2>
-          <a className="contact-link" href="mailto:oi@usagistudio.com.br">oi@usagistudio.com.br <ArrowUpRight /></a>
-          <div className="footer-line"><span>© 2026 Usagi Studio</span><span>São Paulo · Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
+          <form className="contact-form" onSubmit={submitContact} noValidate={false}>
+            <div className="form-grid">
+              <label className="field">
+                <span className="form-label">Seu nome</span>
+                <input type="text" required maxLength={80} value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="Como você se chama?" />
+              </label>
+              <label className="field">
+                <span className="form-label">Seu e-mail</span>
+                <input type="email" required maxLength={255} value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="voce@email.com" />
+              </label>
+            </div>
+            <div className="field">
+              <span className="form-label">Tipo de projeto</span>
+              <div className="type-options" role="group" aria-label="Tipo de projeto">
+                {projectTypes.map((type) => (
+                  <button type="button" key={type} className={type === form.projectType ? "is-active" : ""} onClick={() => setForm({ ...form, projectType: type })}>{type}</button>
+                ))}
+              </div>
+            </div>
+            <label className="field">
+              <span className="form-label">Conte sobre o projeto</span>
+              <textarea required maxLength={1000} rows={4} value={form.message} onChange={(event) => setForm({ ...form, message: event.target.value })} placeholder="Objetivo, prazo, referências…" />
+            </label>
+            <div className="form-actions">
+              <button className="submit-btn" type="submit" disabled={sending}>
+                Enviar pelo WhatsApp <ArrowUpRight size={18} />
+              </button>
+              <p className="form-hint">O botão abre o WhatsApp com a mensagem já pronta — é só revisar e enviar.</p>
+            </div>
+          </form>
+          <div className="footer-line"><span>© 2026 Usagi Studio</span><span>Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
         </div>
       </section>
     </main>
