@@ -112,7 +112,7 @@ function Index() {
         <div className="hero-orbit orbit-one" aria-hidden="true" />
         <div className="hero-orbit orbit-two" aria-hidden="true" />
         <div className="section-wrap hero-content">
-          <p className="eyebrow animate-fade-in">Estúdio criativo independente · Pará de Minas, MG</p>
+          <p className="eyebrow animate-fade-in">Tirando seu sonho do papel · Pará de Minas, MG</p>
           <h1 className="hero-title"><span>IDEIAS QUE</span><span>MOVEM <em>MARCAS.</em></span></h1>
           <div className="hero-bottom">
             <p>Estratégia, design e tecnologia para criar presenças digitais que ninguém esquece.</p>
