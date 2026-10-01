@@ -33,6 +33,32 @@ const navItems = [
   ["Processo", "#processo"],
 ] as const;
 
+// Número do WhatsApp em formato internacional, apenas dígitos (DDI + DDD + número).
+// Troque pelo número oficial quando tiver, ex: "5531991234567".
+const WHATSAPP_NUMBER = "5511000000000";
+
+type ContactForm = {
+  name: string;
+  email: string;
+  projectType: string;
+  message: string;
+};
+
+function buildWhatsAppUrl(form: ContactForm): string {
+  const text = [
+    `Olá, Usagi Studio! Meu nome é ${form.name}.`,
+    "",
+    `Tipo de projeto: ${form.projectType}`,
+    `E-mail: ${form.email}`,
+    "",
+    "Mensagem:",
+    form.message,
+  ].join("\n");
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
+const projectTypes = ["Site", "Landing page", "E-commerce", "Outro"] as const;
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
