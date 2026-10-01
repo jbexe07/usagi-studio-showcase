@@ -269,7 +269,6 @@
 .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
 .submit-btn { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; border: 0; border-radius: 999px; background: var(--violet); color: var(--paper); font-family: var(--font-display); font-size: 14px; letter-spacing: .04em; transition: .3s; }
 .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 38px color-mix(in oklch, var(--violet), transparent 55%); }
-.form-hint { margin: 0; color: color-mix(in oklch, var(--ink), transparent 45%); font-size: 12px; }
 
 @media (max-width: 760px) {
   body, a, button { cursor: auto; }
