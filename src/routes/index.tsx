@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowUpRight, Asterisk, Menu, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 import architectureImage from "@/assets/project-architecture.jpg";
 import coffeeImage from "@/assets/project-coffee.jpg";
@@ -61,6 +61,8 @@ const projectTypes = ["Site", "Landing page", "E-commerce", "Outro"] as const;
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [form, setForm] = useState<ContactForm>({ name: "", email: "", projectType: "Site", message: "" });
+  const [sending, setSending] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
