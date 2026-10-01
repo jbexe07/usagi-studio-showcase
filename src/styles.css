@@ -164,7 +164,9 @@
 
 @font-face {
   font-family: "Aquire";
-  src: local("Aquire");
+  src: url("./assets/fonts/aquire.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
   font-display: swap;
 }
 
