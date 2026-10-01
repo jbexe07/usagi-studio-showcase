@@ -35,7 +35,7 @@ const navItems = [
 
 // Número do WhatsApp em formato internacional, apenas dígitos (DDI + DDD + número).
 // Troque pelo número oficial quando tiver, ex: "5531991234567".
-const WHATSAPP_NUMBER = "5511000000000";
+const WHATSAPP_NUMBER = "5537991189566";
 
 type ContactForm = {
   name: string;
@@ -112,7 +112,7 @@ function Index() {
         <div className="hero-orbit orbit-one" aria-hidden="true" />
         <div className="hero-orbit orbit-two" aria-hidden="true" />
         <div className="section-wrap hero-content">
-          <p className="eyebrow animate-fade-in">Estúdio criativo independente</p>
+          <p className="eyebrow animate-fade-in">Estúdio criativo independente · Pará de Minas, MG</p>
           <h1 className="hero-title"><span>IDEIAS QUE</span><span>MOVEM <em>MARCAS.</em></span></h1>
           <div className="hero-bottom">
             <p>Estratégia, design e tecnologia para criar presenças digitais que ninguém esquece.</p>
@@ -195,7 +195,7 @@ function Index() {
               <p className="form-hint">O botão abre o WhatsApp com a mensagem já pronta — é só revisar e enviar.</p>
             </div>
           </form>
-          <div className="footer-line"><span>© 2026 Usagi Studio</span><span>Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
+          <div className="footer-line"><span>© 2026 Usagi Studio</span><span>Pará de Minas · MG — Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
         </div>
       </section>
     </main>
