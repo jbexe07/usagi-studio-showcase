@@ -7,6 +7,7 @@ import coffeeImage from "@/assets/project-coffee.jpg";
 import fashionImage from "@/assets/project-fashion.jpg";
 import { CoverflowCarousel, type CoverflowSlide } from "@/components/ui/coverflow-carousel";
 import logo from "@/assets/logotipo.svg";
+import { HatReveal } from "@/components/HatReveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -164,6 +165,7 @@ function Index() {
         </div>
       </section>
 
+      <HatReveal />
       <section id="contato" className="contact-section" data-reveal>
         <div className="section-wrap">
           <p className="eyebrow">Tem uma ideia?</p>
