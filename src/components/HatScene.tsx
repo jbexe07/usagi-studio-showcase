@@ -165,7 +165,7 @@ export default function HatScene({ progress, active, mobile }: Props) {
       <directionalLight position={[2, 6, 5]} intensity={1.6} />
       <directionalLight position={[0, 3, -5]} intensity={1.4} color={AMBER} />
       <Rig progress={progress} mobile={mobile} />
-      <ContactShadows position={[0, -0.01, 0]} opacity={0.35} scale={7} blur={2.4} far={3} resolution={mobile ? 256 : 512} color={DARK} frames={1} />
+      <ContactShadows position={[0, -0.01, 0]} opacity={0.35} scale={7} blur={2.4} far={3} resolution={mobile ? 256 : 512} color={DARK} />
     </Canvas>
   );
 }
