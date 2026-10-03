@@ -16,13 +16,13 @@ const STARS = [
 ];
 
 const css = `
-.hat-reveal{position:relative;height:300vh;background:#F7F7FF}
+.hat-reveal{position:relative;height:300vh;background:#FFF3E6}
 .hat-stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(12px,3vh,32px);overflow:hidden;padding:0 20px}
 .hat-svg{width:min(400px,86vw);height:auto;max-height:58vh}\n.hat-3d{aspect-ratio:1;height:min(400px,86vw,58vh);width:auto;max-width:86vw}\n.hat-3d canvas{display:block}\n.hat-fallback{width:100%;height:100%}
 .hat-text{text-align:center;max-width:640px}
-.hat-text h2{margin:0;color:#27187E;font-family:var(--font-display);font-size:clamp(26px,4.4vw,52px);line-height:1}
-.hat-text p{margin:14px auto 22px;color:#110B3D;font-family:var(--font-body);font-size:clamp(15px,1.6vw,18px);line-height:1.5}
-.hat-btn{display:inline-block;padding:14px 26px;border-radius:999px;background:#FFB547;color:#110B3D;font-family:var(--font-body);font-weight:800;text-decoration:none;transition:transform .2s}
+.hat-text h2{margin:0;color:#381932;font-family:var(--font-display);font-size:clamp(26px,4.4vw,52px);line-height:1}
+.hat-text p{margin:14px auto 22px;color:#200815;font-family:var(--font-body);font-size:clamp(15px,1.6vw,18px);line-height:1.5}
+.hat-btn{display:inline-block;padding:14px 26px;border-radius:999px;background:#FFB547;color:#200815;font-family:var(--font-body);font-weight:800;text-decoration:none;transition:transform .2s}
 .hat-btn:hover{transform:translateY(-2px)}
 @media (prefers-reduced-motion: reduce){.hat-reveal{height:auto}.hat-stage{position:relative;min-height:100vh;padding:80px 20px}}
 `;
@@ -48,31 +48,31 @@ function HatFallback({ p }: { p: number }) {
             );
           })}
           {/* 1. fundo interno */}
-          <ellipse cx="200" cy="262" rx="92" ry="20" fill="#110B3D" />
+          <ellipse cx="200" cy="262" rx="92" ry="20" fill="#200815" />
           {/* 2. coelho */}
           <g clipPath="url(#hat-clip)">
             <g transform={`translate(0 ${bunnyY})`}>
               <g transform={`rotate(${-wiggle} 180 150)`}>
-                <ellipse cx="175" cy="100" rx="16" ry="52" fill="#E7E3FC" />
+                <ellipse cx="175" cy="100" rx="16" ry="52" fill="#FFF9F2" />
                 <ellipse cx="175" cy="104" rx="7" ry="38" fill="#F6B9CF" />
               </g>
               <g transform={`rotate(${wiggle} 222 150)`}>
-                <ellipse cx="225" cy="100" rx="16" ry="52" fill="#E7E3FC" />
+                <ellipse cx="225" cy="100" rx="16" ry="52" fill="#FFF9F2" />
                 <ellipse cx="225" cy="104" rx="7" ry="38" fill="#F6B9CF" />
               </g>
-              <ellipse cx="200" cy="255" rx="62" ry="58" fill="#E7E3FC" />
-              <circle cx="200" cy="182" r="48" fill="#E7E3FC" />
-              <circle cx="183" cy="176" r="5" fill="#110B3D" />
-              <circle cx="217" cy="176" r="5" fill="#110B3D" />
+              <ellipse cx="200" cy="255" rx="62" ry="58" fill="#FFF9F2" />
+              <circle cx="200" cy="182" r="48" fill="#FFF9F2" />
+              <circle cx="183" cy="176" r="5" fill="#200815" />
+              <circle cx="217" cy="176" r="5" fill="#200815" />
               <path d="M194 192h12l-6 7z" fill="#F6B9CF" />
               <circle cx="170" cy="194" r="7" fill="#F6B9CF" opacity=".5" />
               <circle cx="230" cy="194" r="7" fill="#F6B9CF" opacity=".5" />
             </g>
           </g>
           {/* 3. frente da cartola */}
-          <path d="M108 262 L120 360 Q200 378 280 360 L292 262 Q200 290 108 262Z" fill="#27187E" />
+          <path d="M108 262 L120 360 Q200 378 280 360 L292 262 Q200 290 108 262Z" fill="#381932" />
           <path d="M112 296 Q200 322 288 296 L285 318 Q200 344 115 318Z" fill="#FFB547" />
-          <path d="M60 262 Q200 316 340 262 Q340 288 200 296 Q60 288 60 262Z" fill="#27187E" />
+          <path d="M60 262 Q200 316 340 262 Q340 288 200 296 Q60 288 60 262Z" fill="#381932" />
         </svg>
   );
 }
