@@ -7,10 +7,10 @@ const clamp = (v: number) => Math.min(1, Math.max(0, v));
 const range = (p: number, a: number, b: number) => clamp((p - a) / (b - a));
 const ease = (t: number) => 1 - Math.pow(1 - t, 3);
 
-const INDIGO = "#27187E";
-const DARK = "#110B3D";
+const INDIGO = "#381932";
+const DARK = "#200815";
 const AMBER = "#FFB547";
-const LILAC = "#E7E3FC";
+const LILAC = "#FFF9F2";
 const PINK = "#F6B9CF";
 
 const HAT_TOP = 1.5;
