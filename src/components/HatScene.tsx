@@ -60,7 +60,7 @@ function Rig({ progress, mobile }: { progress: MutableRefObject<number>; mobile:
       hat.current.rotation.x = -pointer.current.y * 0.12;
       hat.current.visible = hatIn > 0.001;
     }
-    if (bunny.current) bunny.current.position.y = -1.9 + rise * 2.75;
+    if (bunny.current) bunny.current.position.y = -1.9 + rise * 3.2;
     if (earL.current) earL.current.rotation.z = 0.18 + wig;
     if (earR.current) earR.current.rotation.z = -0.18 - wig;
     if (stars.current) {
@@ -157,7 +157,7 @@ export default function HatScene({ progress, active, mobile }: Props) {
       frameloop={active ? "always" : "never"}
       gl={{ alpha: true, antialias: !mobile, localClippingEnabled: true } as never}
       onCreated={({ gl }) => { gl.localClippingEnabled = true; }}
-      camera={{ position: [0, 4.2, 7.2], fov: 38 }}
+      camera={{ position: [0, 4.4, 8.6], fov: 38 }}
       style={{ background: "transparent" }}
     >
       <CameraAim />
@@ -174,7 +174,7 @@ function CameraAim() {
   const done = useRef(false);
   useFrame(({ camera }) => {
     if (done.current) return;
-    camera.lookAt(0, 1.7, 0);
+    camera.lookAt(0, 1.9, 0);
     done.current = true;
   });
   return null;
