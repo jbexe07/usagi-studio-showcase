@@ -65,10 +65,10 @@ function Rig({ progress, mobile }: { progress: MutableRefObject<number>; mobile:
     if (earR.current) earR.current.rotation.z = -0.18 - wig;
     if (stars.current) {
       stars.current.children.forEach((s, i) => {
-        const t = ease(range(w, STARS[i][3] * 0.5, STARS[i][3] * 0.5 + 0.5));
+        const t = ease(range(w, STARS[i]![3] * 0.5, STARS[i]![3] * 0.5 + 0.5));
         s.scale.setScalar(p >= 0.6 ? t * 0.9 : 0);
         s.rotation.z += dt * 1.2;
-        s.position.y = STARS[i][1] + Math.sin(state.clock.elapsedTime * 1.5 + i) * 0.08;
+        s.position.y = STARS[i]![1] + Math.sin(state.clock.elapsedTime * 1.5 + i) * 0.08;
       });
     }
   });
