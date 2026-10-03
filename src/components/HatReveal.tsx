@@ -16,7 +16,7 @@ const STARS = [
 ];
 
 const css = `
-.hat-reveal{position:relative;height:300vh;background:#FFF3E6}
+.hat-reveal{position:relative;height:300vh;background:#F7F7FF}
 .hat-stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(12px,3vh,32px);overflow:hidden;padding:0 20px}
 .hat-svg{width:min(400px,86vw);height:auto;max-height:58vh}\n.hat-3d{aspect-ratio:1;height:min(400px,86vw,58vh);width:auto;max-width:86vw}\n.hat-3d canvas{display:block}\n.hat-fallback{width:100%;height:100%}
 .hat-text{text-align:center;max-width:640px}
@@ -53,15 +53,15 @@ function HatFallback({ p }: { p: number }) {
           <g clipPath="url(#hat-clip)">
             <g transform={`translate(0 ${bunnyY})`}>
               <g transform={`rotate(${-wiggle} 180 150)`}>
-                <ellipse cx="175" cy="100" rx="16" ry="52" fill="#FFF9F2" />
+                <ellipse cx="175" cy="100" rx="16" ry="52" fill="#E7E3FC" />
                 <ellipse cx="175" cy="104" rx="7" ry="38" fill="#F6B9CF" />
               </g>
               <g transform={`rotate(${wiggle} 222 150)`}>
-                <ellipse cx="225" cy="100" rx="16" ry="52" fill="#FFF9F2" />
+                <ellipse cx="225" cy="100" rx="16" ry="52" fill="#E7E3FC" />
                 <ellipse cx="225" cy="104" rx="7" ry="38" fill="#F6B9CF" />
               </g>
-              <ellipse cx="200" cy="255" rx="62" ry="58" fill="#FFF9F2" />
-              <circle cx="200" cy="182" r="48" fill="#FFF9F2" />
+              <ellipse cx="200" cy="255" rx="62" ry="58" fill="#E7E3FC" />
+              <circle cx="200" cy="182" r="48" fill="#E7E3FC" />
               <circle cx="183" cy="176" r="5" fill="#200815" />
               <circle cx="217" cy="176" r="5" fill="#200815" />
               <path d="M194 192h12l-6 7z" fill="#F6B9CF" />

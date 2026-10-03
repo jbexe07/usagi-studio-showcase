@@ -10,7 +10,7 @@ const ease = (t: number) => 1 - Math.pow(1 - t, 3);
 const INDIGO = "#381932";
 const DARK = "#200815";
 const AMBER = "#FFB547";
-const LILAC = "#FFF9F2";
+const LILAC = "#E7E3FC";
 const PINK = "#F6B9CF";
 
 const HAT_TOP = 1.5;
