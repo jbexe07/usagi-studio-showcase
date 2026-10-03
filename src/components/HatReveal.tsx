@@ -104,7 +104,7 @@ export function HatReveal() {
     if (reduce) { setP(1); progressRef.current = 1; return; }
     const el0 = ref.current;
     const io = new IntersectionObserver(([e]) => {
-      setOnScreen(e?.isIntersecting);
+      setOnScreen(!!e?.isIntersecting);
       if (e?.isIntersecting && hasWebGL()) setUse3D(true);
     }, { rootMargin: "400px 0px" });
     if (el0) io.observe(el0);
