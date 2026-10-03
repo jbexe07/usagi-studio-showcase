@@ -78,9 +78,9 @@ function HatFallback({ p }: { p: number }) {
 }
 
 class SceneBoundary extends Component<{ fallback: ReactNode; children: ReactNode }, { failed: boolean }> {
-  state = { failed: false };
+  override state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
-  render() { return this.state.failed ? this.props.fallback : this.props.children; }
+  override render() { return this.state.failed ? this.props.fallback : this.props.children; }
 }
 
 function hasWebGL() {
@@ -104,8 +104,8 @@ export function HatReveal() {
     if (reduce) { setP(1); progressRef.current = 1; return; }
     const el0 = ref.current;
     const io = new IntersectionObserver(([e]) => {
-      setOnScreen(e.isIntersecting);
-      if (e.isIntersecting && hasWebGL()) setUse3D(true);
+      setOnScreen(e?.isIntersecting);
+      if (e?.isIntersecting && hasWebGL()) setUse3D(true);
     }, { rootMargin: "400px 0px" });
     if (el0) io.observe(el0);
     let raf = 0;
