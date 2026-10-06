@@ -98,15 +98,40 @@ function Index() {
       <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
 
       <header className="floating-nav">
-        <a href="#inicio" className="brand" aria-label="Kaido, início">KAIDO</a>
+        {/* Link da logo: leva para a seção "inicio" da página */}
+        <a href="#inicio" className="brand" aria-label="Kaido, início">
+          {/* Antes era só texto: KAIDO */}
+          {/* Agora é uma imagem que está na pasta "public" */}
+          <img
+            src="/kaido.svg"  /* caminho da imagem (o "/" aponta para a pasta public) */
+            alt="Kaido"            /* texto alternativo: acessibilidade e caso a imagem não carregue */
+            className="brand-logo" /* classe usada no CSS para controlar o tamanho */
+          />
+        </a>
+      
+        {/* Menu de navegação (continua igual) */}
         <nav className={menuOpen ? "nav-links is-open" : "nav-links"} aria-label="Navegação principal">
-          {navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
-          <a href="#contato" className="nav-cta" onClick={() => setMenuOpen(false)}>Iniciar projeto <ArrowUpRight size={14} /></a>
+          {/* Cria um link para cada item da lista navItems */}
+          {navItems.map(([label, href]) => (
+            <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
+          ))}
+          {/* Botão de destaque do menu */}
+          <a href="#contato" className="nav-cta" onClick={() => setMenuOpen(false)}>
+            Iniciar projeto <ArrowUpRight size={14} />
+          </a>
         </nav>
-        <button className="menu-toggle" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}>
+      
+        {/* Botão do menu mobile (continua igual) */}
+        <button
+          className="menu-toggle"
+          type="button"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+        >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </header>
+      
 
       <section id="inicio" className="hero-section">
         <div className="hero-orbit orbit-one" aria-hidden="true" />
