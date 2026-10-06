@@ -219,7 +219,7 @@ function Index() {
               </button>
             </div>
           </form>
-          <div className="footer-line"><span>© 2026 Kaido</span><span>Pará de Minas · MG — Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
+          <div className="footer-line"><span>Ainda tem dúvidas? Entre em contato com a gente!</span><span>© 2026 Kaido Studio - Todos os direitos reservados</span><a href="#inicio">Voltar ao topo ↑</a></div>
         </div>
       </section>
     </main>
