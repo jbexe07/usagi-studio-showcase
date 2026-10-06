@@ -46,7 +46,7 @@ type ContactForm = {
 
 function buildWhatsAppUrl(form: ContactForm): string {
   const text = [
-    `Olá, Kaido! Meu nome é ${form.name}.`,
+    `Olá, Kaido Studio! Meu nome é ${form.name}.`,
     "",
     `Tipo de projeto: ${form.projectType}`,
     `E-mail: ${form.email}`,
