@@ -6,15 +6,13 @@ import architectureImage from "@/assets/project-architecture.jpg";
 import coffeeImage from "@/assets/project-coffee.jpg";
 import fashionImage from "@/assets/project-fashion.jpg";
 import { CoverflowCarousel, type CoverflowSlide } from "@/components/ui/coverflow-carousel";
-import logo from "@/assets/logotipo.svg";
-import { HatReveal } from "@/components/HatReveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Usagi Studio — Sites que movem marcas" },
+      { title: "Kaido — Sites que movem marcas" },
       { name: "description", content: "Design e desenvolvimento de sites autorais para marcas que querem sair do comum." },
-      { property: "og:title", content: "Usagi Studio — Sites que movem marcas" },
+      { property: "og:title", content: "Kaido — Sites que movem marcas" },
       { property: "og:description", content: "Design e desenvolvimento de sites autorais para marcas que querem sair do comum." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -48,7 +46,7 @@ type ContactForm = {
 
 function buildWhatsAppUrl(form: ContactForm): string {
   const text = [
-    `Olá, Usagi Studio! Meu nome é ${form.name}.`,
+    `Olá, Kaido! Meu nome é ${form.name}.`,
     "",
     `Tipo de projeto: ${form.projectType}`,
     `E-mail: ${form.email}`,
@@ -100,9 +98,7 @@ function Index() {
       <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
 
       <header className="floating-nav">
-        <a href="#inicio" className="brand" aria-label="Usagi Studio, início">
-          <img src={logo} alt="Usagi Studio" className="brand-logo" />
-        </a>
+        <a href="#inicio" className="brand" aria-label="Kaido, início">KAIDO</a>
         <nav className={menuOpen ? "nav-links is-open" : "nav-links"} aria-label="Navegação principal">
           {navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
           <a href="#contato" className="nav-cta" onClick={() => setMenuOpen(false)}>Iniciar projeto <ArrowUpRight size={14} /></a>
@@ -132,7 +128,7 @@ function Index() {
           <p className="statement">A gente não faz só sites.<br /><strong>Cria pontos de virada.</strong></p>
           <div className="about-detail">
             <Asterisk size={34} />
-            <p>A Usagi Studio une pensamento estratégico, design expressivo e desenvolvimento preciso para transformar boas ideias em experiências digitais marcantes.</p>
+            <p>A Kaido une pensamento estratégico, design expressivo e desenvolvimento preciso para transformar boas ideias em experiências digitais marcantes.</p>
           </div>
         </div>
       </section>
@@ -165,7 +161,6 @@ function Index() {
         </div>
       </section>
 
-      <HatReveal />
       <section id="contato" className="contact-section" data-reveal>
         <div className="section-wrap">
           <p className="eyebrow">Tem uma ideia?</p>
@@ -199,7 +194,7 @@ function Index() {
               </button>
             </div>
           </form>
-          <div className="footer-line"><span>© 2026 Usagi Studio</span><span>Pará de Minas · MG — Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
+          <div className="footer-line"><span>© 2026 Kaido</span><span>Pará de Minas · MG — Brasil</span><a href="#inicio">Voltar ao topo ↑</a></div>
         </div>
       </section>
     </main>
