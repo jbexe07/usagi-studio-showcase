@@ -10,9 +10,9 @@ import { CoverflowCarousel, type CoverflowSlide } from "@/components/ui/coverflo
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kaido — Sites que movem marcas" },
+      { title: "Kaido Studio | Criando experiências" },
       { name: "description", content: "Design e desenvolvimento de sites autorais para marcas que querem sair do comum." },
-      { property: "og:title", content: "Kaido — Sites que movem marcas" },
+      { property: "og:title", content: "Kaido Studio | Criando experiências" },
       { property: "og:description", content: "Design e desenvolvimento de sites autorais para marcas que querem sair do comum." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
