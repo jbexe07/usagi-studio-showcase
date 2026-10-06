@@ -168,21 +168,21 @@
 
 @font-face {
   font-family: "Aquire";
-  src: url("./assets/aquire-bw0ox.otf") format("opentype");
+  src: url("./assets/fonts/aquire-bw0ox.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Aquire";
-  src: url("./assets/aquirelight-yze0o.otf") format("opentype");
+  src: url("./assets/fonts/aquirelight-yze0o.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Aquire Bold";
-  src: url("./assets/aquirebold-8ma60.otf") format("opentype");
+  src: url("./assets/fonts/aquirebold-8ma60.otf") format("opentype");
   font-weight: 400 900;
   font-style: normal;
   font-display: swap;
