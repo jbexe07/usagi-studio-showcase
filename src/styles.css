@@ -320,6 +320,19 @@
   .footer-line { flex-direction: column; gap: 12px; margin-top: 55px; }
 }
 
+/* Link da logo: garante alinhamento correto da imagem */
+.brand {
+  display: flex;          /* alinha o conteúdo em linha */
+  align-items: center;    /* centraliza verticalmente */
+}
+
+/* Imagem da logo */
+.brand-logo {
+  height: 28px;           /* altura da logo: ajuste ao seu gosto */
+  width: auto;            /* largura automática, mantém a proporção */
+  display: block;         /* remove espaço extra embaixo da imagem */
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
