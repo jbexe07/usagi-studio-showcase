@@ -103,7 +103,7 @@ function Index() {
           {/* Antes era só texto: KAIDO */}
           {/* Agora é uma imagem que está na pasta "public" */}
           <img
-            src="/kaido.svg"  /* caminho da imagem (o "/" aponta para a pasta public) */
+            src="/kaido1.svg"  /* caminho da imagem (o "/" aponta para a pasta public) */
             alt="Kaido"            /* texto alternativo: acessibilidade e caso a imagem não carregue */
             className="brand-logo" /* classe usada no CSS para controlar o tamanho */
           />
